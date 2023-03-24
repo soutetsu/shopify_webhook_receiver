@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :shopify do
+    post 'webhooks/order_update', to: 'webhooks#order_update'
+  end
 end
