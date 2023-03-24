@@ -1,0 +1,32 @@
+<%= form_with(model: shopify_order) do |form| %>
+  <% if shopify_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shopify_order.errors.count, "error") %> prohibited this shopify_order from being saved:</h2>
+
+      <ul>
+        <% shopify_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :webhook_event_name %>
+    <%= form.text_field :webhook_event_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :webhook_params %>
+    <%= form.text_area :webhook_params %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

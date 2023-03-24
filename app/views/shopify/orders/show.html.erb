@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Webhook event name:</strong>
+  <%= @shopify_order.webhook_event_name %>
+</p>
+
+<p>
+  <strong>Webhook params:</strong>
+  <%= @shopify_order.webhook_params %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @shopify_order.note %>
+</p>
+
+<%= link_to 'Edit', edit_shopify_order_path(@shopify_order) %> |
+<%= link_to 'Back', shopify_orders_path %>

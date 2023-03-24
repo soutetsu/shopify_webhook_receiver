@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shopify Orders</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Webhook event name</th>
+      <th>Webhook params</th>
+      <th>Note</th>
+      <th>Created at</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shopify_orders.each do |shopify_order| %>
+      <tr>
+        <td><%= shopify_order.webhook_event_name %></td>
+        <td><%= truncate shopify_order.webhook_params %></td>
+        <td><%= simple_format shopify_order.note %></td>
+        <td><%= l(shopify_order.created_at) %></td>
+        <td><%= l(shopify_order.updated_at) %></td>
+        <td><%= link_to 'Show', shopify_order %></td>
+        <td><%= link_to 'Edit', edit_shopify_order_path(shopify_order) %></td>
+        <td><%= link_to 'Destroy', shopify_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
